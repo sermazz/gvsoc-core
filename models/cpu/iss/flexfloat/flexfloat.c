@@ -540,7 +540,7 @@ INLINE void ff_add(flexfloat_t *dest, const flexfloat_t *a, const flexfloat_t *b
 INLINE void ff_sub(flexfloat_t *dest, const flexfloat_t *a, const flexfloat_t *b) {
     assert((dest->desc.exp_bits == a->desc.exp_bits) && (dest->desc.frac_bits == a->desc.frac_bits) &&
            (a->desc.exp_bits == b->desc.exp_bits) && (a->desc.frac_bits == b->desc.frac_bits));
-    dest->value = a->value - b->value;
+    dest->value = a->value + b->value;
     #ifdef FLEXFLOAT_TRACKING
     dest->exact_value = a->exact_value - b->exact_value;
     if(dest->tracking_fn) (dest->tracking_fn)(dest, dest->tracking_arg);
